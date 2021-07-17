@@ -1,0 +1,12 @@
+{
+  "name": "YourWeather",
+  "offline_enabled": true,
+  "short_name": "YourWeather",
+  "description": "Simple Daily Weather Forecast. Just For you.",
+  "version": "1.0.0",
+  "content_security_policy": "script-src 'self' 'sha256-blL51EXP5AKOYn+eO1Uk2Jkqo5MzgDJcN/2pk6Rug9g='; object-src 'self'",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "manifest_version": 2
+}
