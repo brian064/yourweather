@@ -76,21 +76,8 @@ function App() {
   const [weather, setWeather] = useState('')
   const [weatherDesc, setWeatherDesc] = useState('')
   const [temp, setTemp] = useState('')
-  // const [locationInfo, setLocationinfo] = useState({ ip: ''})
 
   const { register, handleSubmit } = useForm();
-
-  //get user location using this hook
-  // const getUserLocation = () => {
-  //   fetch(locationURL, { method: "get" })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       let locationInfo = {...data}
-  //       setCity(locationInfo.ip.city)
-  //     })
-  // }
-
-  // getUserLocation()
 
   useEffect(() => {
     fetch(locationURL, { method: "get" })
@@ -101,14 +88,10 @@ function App() {
       })
   }, [])
 
-  // console.log("CITY: ", city)
-
   const getWeather = async () => {
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/find?q=${city}&units=imperial&appid=${API_key}`)
 
     const response = await api_call.json()
-
-    // console.log(response)
 
     if (response.list) {
       setWeather(response?.list[0]?.weather[0]?.main)
@@ -120,16 +103,11 @@ function App() {
   if (city) {
     getWeather()
   }
-
-  // FORM HOOK
+  
   const onSubmit = formData => {
     setCity(formData?.city)
     console.log("CITY: ", city)
   }
-  
-  // console.log("Temp: " + temp)
-  // console.log("Weather: " + weather)
-  // console.log("Weather Description: " + weatherDesc)
 
   return (
     <>
